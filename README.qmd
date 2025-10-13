@@ -1,5 +1,5 @@
 ---
-title: "Fundamentals of Programming 2025"
+title: "FP 2025"
 author: "Berry Boessenkool;"
 date: now
 date-format: %Y-%m-%d, %H:%M
