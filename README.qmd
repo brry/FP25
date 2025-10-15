@@ -1,8 +1,12 @@
 ---
-title: "FP 2025"
+title: "Fundamentals of Programming 2025"
 author: "Berry Boessenkool;"
 date: now
+<<<<<<< HEAD
 date-format: YYYY-MM-DD, HH:MM
+=======
+date-format: YYYY-MM-DD, HH:mm
+>>>>>>> 5486b1ffadf1ba0518dcb21a6a6096d2b17bec11
 format:
     gfm: 
        embed-resources: false
@@ -37,6 +41,7 @@ plotDWD(clim, "TMK.Lufttemperatur")
 
 I use Python via the R package reticulate. All chill on Windows; On Mac, I needed a manual install:
 ```{r, install_python, eval=FALSE}
+if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
 install.packages("reticulate")
 # check first:
 reticulate::py_config()
@@ -58,6 +63,12 @@ reticulate::py_numpy_available(TRUE)
 reticulate::py_numpy_available()
 
 reticulate::py_install(c("numpy", "pandas", "matplotlib"))
+}
+```
+On Windows / if you use the system Python, run in the terminal:
+```{bash, install_python_packages, eval=FALSE}
+pip install pandas
+pip install matplotlib
 ```
 
 Back to the actual code:
