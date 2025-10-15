@@ -11,22 +11,19 @@ This is a github task in the course
 
 ## Get weather data
 
-``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
     install.packages("rdwd")
 rdwd::updateRdwd()
-```
 
     rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.3 (2025-08-18)
 
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
+install.packages("rdwd")
 
-``` r
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
-```
 
     Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
     -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate
@@ -47,9 +44,10 @@ plotDWD(clim, "TMK.Lufttemperatur")
 I use Python via the R package reticulate. All chill on Windows; On Mac,
 I needed a manual install:
 
-``` r
+```
 if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
 install.packages("reticulate")
+```
 # check first:
 reticulate::py_config()
 reticulate::py_available(TRUE)
