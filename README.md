@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-15, 14:02
+2025-10-15, 14:04
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -38,6 +38,7 @@ I use Python via the R package reticulate. All chill on Windows; On Mac,
 I needed a manual install:
 
 ``` r
+if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
 install.packages("reticulate")
 # check first:
 reticulate::py_config()
@@ -59,6 +60,14 @@ reticulate::py_numpy_available(TRUE)
 reticulate::py_numpy_available()
 
 reticulate::py_install(c("numpy", "pandas", "matplotlib"))
+}
+```
+
+On Windows / if you use the system Python, run in the terminal:
+
+``` bash
+pip install pandas
+pip install matplotlib
 ```
 
 Back to the actual code:
