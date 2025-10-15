@@ -1,6 +1,6 @@
-# Fundamentals of Programming 2025
+# FP 2025
 Berry Boessenkool;
-2025-10-13, 19:12
+2025-10-15, 15:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -23,6 +23,12 @@ library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
+
+    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
+    -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate
+    -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart ->
+    withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval
+    -> eval -> dataDWD -> locdir: '~/DWDdata' does not exist, using tempdir() now.
 
 ## visualise recent temperature
 

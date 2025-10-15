@@ -2,7 +2,7 @@
 title: "FP 2025"
 author: "Berry Boessenkool;"
 date: now
-date-format: %Y-%m-%d, %H:%M
+date-format: YYYY-MM-DD, HH:MM
 format:
     gfm: 
        embed-resources: false
