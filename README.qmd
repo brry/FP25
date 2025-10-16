@@ -74,6 +74,6 @@ clim_py = r.clim
 import matplotlib
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
-clim_py.hist(figsize=(20, 16), bins=20)
+clim_py.hist(figsize=(20, 16), bins=5)
 ```
 
