@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-16, 09:10
+2025-10-16, 11:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -119,7 +119,7 @@ print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 
 ``` python
 clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
-clim_py.hist(figsize=(12, 8), bins=20)
+clim_py.hist(figsize=(20, 16), bins=20)
 ```
 
 </details>
