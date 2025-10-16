@@ -2,11 +2,7 @@
 title: "Fundamentals of Programming 2025"
 author: "Berry Boessenkool;"
 date: now
-<<<<<<< HEAD
 date-format: YYYY-MM-DD, HH:MM
-=======
-date-format: YYYY-MM-DD, HH:mm
->>>>>>> 5486b1ffadf1ba0518dcb21a6a6096d2b17bec11
 format:
     gfm: 
        embed-resources: false

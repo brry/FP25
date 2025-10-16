@@ -1,35 +1,33 @@
-# FP 2025
+# Fundamentals of Programming 2025
 Berry Boessenkool;
-<<<<<<< HEAD
-2025-10-15, 15:10
-=======
-2025-10-15, 14:04
->>>>>>> 5486b1ffadf1ba0518dcb21a6a6096d2b17bec11
+2025-10-16, 06:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
 
 ## Get weather data
 
+``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
     install.packages("rdwd")
 rdwd::updateRdwd()
+```
 
     rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.3 (2025-08-18)
 
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
-install.packages("rdwd")
 
+``` r
 library(rdwd)
+```
+
+    Warning: package 'rdwd' was built under R version 4.5.1
+
+``` r
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
-
-    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
-    -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate
-    -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart ->
-    withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval
-    -> eval -> dataDWD -> locdir: '~/DWDdata' does not exist, using tempdir() now.
+```
 
 ## visualise recent temperature
 
@@ -44,10 +42,9 @@ plotDWD(clim, "TMK.Lufttemperatur")
 I use Python via the R package reticulate. All chill on Windows; On Mac,
 I needed a manual install:
 
-```
+``` r
 if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
 install.packages("reticulate")
-```
 # check first:
 reticulate::py_config()
 reticulate::py_available(TRUE)
@@ -83,6 +80,9 @@ Back to the actual code:
 ``` python
 clim_py = r.clim
 import matplotlib
+```
+
+``` python
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 ```
 
