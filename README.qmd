@@ -6,6 +6,7 @@ date-format: YYYY-MM-DD, HH:MM
 format:
     gfm: 
        embed-resources: false
+       code-fold: true
 ---
 
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).\
