@@ -167,7 +167,7 @@ print(temp_stats)
 <summary>Code</summary>
 
 ``` python
-# Find and display the extreme temperature days
+# Find and display the max and min temperature days
 print("\n=== Extreme Temperature Days ===")
 ```
 
