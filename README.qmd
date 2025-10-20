@@ -88,7 +88,7 @@ print("\n=== Summary Statistics for Temperature ===")
 temp_stats = clim_py['TMK.Lufttemperatur'].describe()
 print(temp_stats)
 
-# Find and display the max and min temperature days
+# Find and display the maximum and minimum temperature days
 print("\n=== Extreme Temperature Days ===")
 max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
 min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
