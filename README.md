@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-16, 20:10
+2025-10-20, 16:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -28,6 +28,16 @@ download recent weather data using
 
 ``` r
 library(rdwd)
+```
+
+</details>
+
+    Warning: package 'rdwd' was built under R version 4.4.3
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` r
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
@@ -35,10 +45,11 @@ clim <- dataDWD(link, varnames=TRUE, force=24)
 </details>
 
     Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
-    -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate
-    -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart ->
-    withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval
-    -> eval -> dataDWD -> locdir: '~/DWDdata' does not exist, using tempdir() now.
+    -> process_group -> call_block -> block_exec -> dataDWD -> locdir: '~/DWDdata'
+    does not exist, using tempdir() now.
+
+    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec ->  dataDWD -> readDWD: R package 'data.table' available for fast reading of files, but system command 'unzip' could not be found. Now reading slowly.
+    See   https://bookdown.org/brry/rdwd/fread.html
 
 ## visualise recent temperature
 
@@ -52,6 +63,19 @@ plotDWD(clim, "TMK.Lufttemperatur")
 </details>
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
+
+## visualise recent Wind Speed
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` r
+plotDWD(clim, "FX.Windspitze", col="brown")
+```
+
+</details>
+
+![](README_files/figure-commonmark/plot_Wind_Speed-1.png)
 
 ## transfer to Python
 
@@ -113,7 +137,6 @@ print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 ```
 
 </details>
-
 <details class="code-fold">
 <summary>Code</summary>
 
