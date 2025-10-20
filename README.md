@@ -4,6 +4,8 @@ Berry Boessenkool;
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
+\##note that it is fine to not really understand the code at this
+point - we’ll get to that throughout the course :)
 
 ## Get weather data
 
