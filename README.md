@@ -1,11 +1,12 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-20, 15:10
+2025-10-20, 17:10
 
 This is a github task in the course
-[FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
-\##note that it is fine to not really understand the code at this
-point - we’ll get to that throughout the course :)
+[FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
+
+*note that it is fine to not really understand the code at this point -
+we’ll get to that throughout the course :)*
 
 ## Get weather data
 
@@ -30,17 +31,21 @@ download recent weather data using
 
 ``` r
 library(rdwd)
+```
+
+</details>
+
+    Warning: package 'rdwd' was built under R version 4.5.1
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` r
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
 
 </details>
-
-    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
-    -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate
-    -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart ->
-    withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval
-    -> eval -> dataDWD -> locdir: '~/DWDdata' does not exist, using tempdir() now.
 
 ## visualise recent temperature
 
