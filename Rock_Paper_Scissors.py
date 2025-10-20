@@ -98,6 +98,6 @@ elif user_choice == 2 and computer_choice == 0:
 elif user_choice == 2 and computer_choice == 2:
     print("It's a draw!")
 
-# when the user chooses an invalid option
+# When the user chooses an invalid option
 if user_choice < 0 or user_choice > 2: 
     print("Invalid choice! Choose a value beteween 0 and 2.")   
