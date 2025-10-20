@@ -77,3 +77,21 @@ clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
 clim_py.hist(figsize=(20, 16), bins=5)
 ```
 
+Calculate summary statistics and identify extreme days:
+```{python}
+#| label: temperature-stats
+#| echo: true
+
+# Calculate and display basic statistics
+print("\n=== Summary Statistics for Temperature ===")
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+
+# Find and display extreme temperature days
+print("\n=== Extreme Temperature Days ===")
+max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
+min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
+
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+```
