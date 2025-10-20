@@ -1,13 +1,14 @@
 ---
-title: "Fundamentals of Programming 2025"
-author: "Berry Boessenkool;"
+title: "Fundamentals of Programming October 2025"
+author: "Berry Boessenkool"
 date: now
-date-format: YYYY-MM-DD, HH:MM
+date-format: "YYYY-MM-DD, HH:MM"
 format:
-    gfm: 
-       embed-resources: false
-       code-fold: true
+  gfm:
+    embed-resources: false
+    code-fold: true
 ---
+
 
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).\
 
