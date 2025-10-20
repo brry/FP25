@@ -1,6 +1,6 @@
-# Fundamentals of Programming 2025
-Berry Boessenkool;
-2025-10-20, 14:10
+# Fundamentals of Programming October 2025
+Berry Boessenkool
+2025-10-20, 15:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -134,7 +134,7 @@ Calculate summary statistics and identify extreme days:
 <summary>Code</summary>
 
 ``` python
-# Calculate and display basic statistics
+# Calculate and display some basic statistics
 print("\n=== Summary Statistics for Temperature ===")
 ```
 

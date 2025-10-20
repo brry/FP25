@@ -83,7 +83,7 @@ Calculate summary statistics and identify extreme days:
 #| label: temperature-stats
 #| echo: true
 
-# Calculate and display basic statistics
+# Calculate and display some basic statistics
 print("\n=== Summary Statistics for Temperature ===")
 temp_stats = clim_py['TMK.Lufttemperatur'].describe()
 print(temp_stats)
