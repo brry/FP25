@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-16, 20:10
+2025-10-20, 14:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -125,3 +125,76 @@ clim_py.hist(figsize=(20, 16), bins=5)
 </details>
 
 ![](README_files/figure-commonmark/histograms-1.png)
+
+Calculate summary statistics and identify extreme days:
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+# Calculate and display basic statistics
+print("\n=== Summary Statistics for Temperature ===")
+```
+
+</details>
+
+
+    === Summary Statistics for Temperature ===
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+```
+
+</details>
+
+    count    550.000000
+    mean      12.972364
+    std        7.108414
+    min       -4.800000
+    25%        7.650000
+    50%       14.150000
+    75%       18.700000
+    max       29.200000
+    Name: TMK.Lufttemperatur, dtype: float64
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+# Find and display extreme temperature days
+print("\n=== Extreme Temperature Days ===")
+```
+
+</details>
+
+
+    === Extreme Temperature Days ===
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
+min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
+
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+```
+
+</details>
+
+    Hottest day: 2025-07-02 with 29.2°C
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+```
+
+</details>
+
+    Coldest day: 2025-02-17 with -4.8°C
