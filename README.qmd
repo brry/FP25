@@ -6,6 +6,9 @@ date-format: YYYY-MM-DD, HH:MM
 format:
   gfm:
     embed-resources: false
+execute:
+	echo: true
+	
 ---
 
 
