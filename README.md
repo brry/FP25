@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-20, 16:10
+2025-10-21, 22:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
@@ -18,7 +18,7 @@ rdwd::updateRdwd()
 
 </details>
 
-    rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.3 (2025-08-18)
+    rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.4 (2025-10-20)
 
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
@@ -28,25 +28,11 @@ download recent weather data using
 
 ``` r
 library(rdwd)
-```
-
-</details>
-
-    Warning: package 'rdwd' was built under R version 4.4.3
-
-<details class="code-fold">
-<summary>Code</summary>
-
-``` r
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
 
 </details>
-
-    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error
-    -> process_group -> call_block -> block_exec -> dataDWD -> locdir: '~/DWDdata'
-    does not exist, using tempdir() now.
 
     Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec ->  dataDWD -> readDWD: R package 'data.table' available for fast reading of files, but system command 'unzip' could not be found. Now reading slowly.
     See   https://bookdown.org/brry/rdwd/fread.html
@@ -70,7 +56,7 @@ plotDWD(clim, "TMK.Lufttemperatur")
 <summary>Code</summary>
 
 ``` r
-plotDWD(clim, "FX.Windspitze", col="brown")
+plotDWD(clim, "FX.Windspitze")
 ```
 
 </details>
