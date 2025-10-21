@@ -43,7 +43,7 @@ plotDWD(clim, "TMK.Lufttemperatur")
 ## Visualise recent Wind Speed
 
 ``` r
-plotDWD(clim, "FX.Windspitze", col="brown")
+plotDWD(clim, "FX.Windspitze")
 ```
 
 ![](README_files/figure-commonmark/plot_Wind_Speed-1.png)
