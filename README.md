@@ -1,14 +1,18 @@
-# Fundamentals of Programming 2025
-Berry Boessenkool;
+# Fundamentals of Programming October 2025
+Berry Boessenkool
 2025-10-21, 22:10
 
 This is a github task in the course
-[FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).  
+[FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
+
+*note that it is fine to not really understand the code at this point -
+we’ll get to that throughout the course :)*
+
+Please go through the new [installation
+guide](https://github.com/brry/fpsetup#software-installation-guide)
+first!
 
 ## Get weather data
-
-<details class="code-fold">
-<summary>Code</summary>
 
 ``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
@@ -16,15 +20,8 @@ if(!requireNamespace("rdwd", quietly=TRUE))
 rdwd::updateRdwd()
 ```
 
-</details>
-
-    rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.4 (2025-10-20)
-
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
-
-<details class="code-fold">
-<summary>Code</summary>
 
 ``` r
 library(rdwd)
@@ -32,89 +29,26 @@ link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
 
-</details>
-
     Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec ->  dataDWD -> readDWD: R package 'data.table' available for fast reading of files, but system command 'unzip' could not be found. Now reading slowly.
     See   https://bookdown.org/brry/rdwd/fread.html
 
-## visualise recent temperature
-
-<details class="code-fold">
-<summary>Code</summary>
+## Visualise recent temperature
 
 ``` r
 plotDWD(clim, "TMK.Lufttemperatur")
 ```
 
-</details>
-
 ![](README_files/figure-commonmark/plot_clim-1.png)
 
-## visualise recent Wind Speed
-
-<details class="code-fold">
-<summary>Code</summary>
+## Visualise recent Wind Speed
 
 ``` r
 plotDWD(clim, "FX.Windspitze")
 ```
 
-</details>
-
 ![](README_files/figure-commonmark/plot_Wind_Speed-1.png)
 
-## transfer to Python
-
-I use Python via the R package reticulate. All chill on Windows; On Mac,
-I needed a manual install:
-
-<details class="code-fold">
-<summary>Code</summary>
-
-``` r
-if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
-install.packages("reticulate")
-# check first:
-reticulate::py_config()
-reticulate::py_available(TRUE)
-# potentially do the edit_r_environ below if you have a working Python path
-
-# install Python if needed
-reticulate::install_miniconda() # then do the tos thing in the terminal, then:
-reticulate::install_miniconda(force=TRUE)
-reticulate::use_miniconda(condaenv="r-reticulate", required=TRUE)
-reticulate::py_config()
-# Make Python choice permanent (normally happens automatically in the background):
-usethis::edit_r_environ() # RETICULATE_PYTHON=~/Library/r-miniconda/envs/r-reticulate/bin/python
-
-# Restart Rstudio, check if calling python works:
-reticulate::py_available()
-reticulate::py_eval("1+1")
-reticulate::py_numpy_available(TRUE)
-reticulate::py_numpy_available()
-
-reticulate::py_install(c("numpy", "pandas", "matplotlib"))
-}
-```
-
-</details>
-
-On Windows / if you use the system Python, run in the terminal:
-
-<details class="code-fold">
-<summary>Code</summary>
-
-``` bash
-pip install pandas
-pip install matplotlib
-```
-
-</details>
-
-Back to the actual code:
-
-<details class="code-fold">
-<summary>Code</summary>
+## Transfer to Python
 
 ``` python
 clim_py = r.clim
@@ -122,15 +56,57 @@ import matplotlib
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 ```
 
-</details>
-<details class="code-fold">
-<summary>Code</summary>
-
 ``` python
 clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
 clim_py.hist(figsize=(20, 16), bins=5)
 ```
 
-</details>
-
 ![](README_files/figure-commonmark/histograms-1.png)
+
+## Calculate summary statistics and identify extreme days
+
+``` python
+# Calculate and display some basic statistics
+print("\n=== Summary Statistics for Temperature ===")
+```
+
+
+    === Summary Statistics for Temperature ===
+
+``` python
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+```
+
+    count    550.000000
+    mean      12.973273
+    std        7.107655
+    min       -4.800000
+    25%        7.650000
+    50%       14.150000
+    75%       18.700000
+    max       29.200000
+    Name: TMK.Lufttemperatur, dtype: float64
+
+``` python
+# Find and display the maximum and minimum temperature days
+print("\n=== Extreme Temperature Days ===")
+```
+
+
+    === Extreme Temperature Days ===
+
+``` python
+max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
+min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
+
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+```
+
+    Hottest day: 2025-07-02 with 29.2°C
+
+``` python
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+```
+
+    Coldest day: 2025-02-17 with -4.8°C

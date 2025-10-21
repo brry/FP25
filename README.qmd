@@ -1,19 +1,23 @@
 ---
-title: "Fundamentals of Programming 2025"
-author: "Berry Boessenkool;"
+title: "Fundamentals of Programming October 2025"
+author: "Berry Boessenkool"
 date: now
 date-format: YYYY-MM-DD, HH:MM
 format:
-    gfm: 
-       embed-resources: false
-       code-fold: true
+  gfm:
+    embed-resources: false
 ---
 
-This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).\
+
+This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
+
+*note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
+
+Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
 ## Get weather data
 
-```{r, packages}
+```{r, packages, warning=FALSE, message=FALSE}
 if(!requireNamespace("rdwd", quietly=TRUE))
 	install.packages("rdwd")
 rdwd::updateRdwd()
@@ -28,58 +32,20 @@ link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
 
-
-## visualise recent temperature
+## Visualise recent temperature
 
 ```{r, plot_clim}
 plotDWD(clim, "TMK.Lufttemperatur")
 ```
 
-## visualise recent Wind Speed
+
+## Visualise recent Wind Speed
 
 ```{r, plot_Wind_Speed}
 plotDWD(clim, "FX.Windspitze")
 ```
 
-
-
-## transfer to Python
-
-I use Python via the R package reticulate. All chill on Windows; On Mac, I needed a manual install:
-```{r, install_python, eval=TRUE}
-if(FALSE){ # do not run this chunk accidentally (e.g in VS code)
-install.packages("reticulate")
-# check first:
-reticulate::py_config()
-reticulate::py_available(TRUE)
-# potentially do the edit_r_environ below if you have a working Python path
-
-# install Python if needed
-reticulate::install_miniconda() # then do the tos thing in the terminal, then:
-reticulate::install_miniconda(force=TRUE)
-reticulate::use_miniconda(condaenv="r-reticulate", required=TRUE)
-reticulate::py_config()
-# Make Python choice permanent (normally happens automatically in the background):
-usethis::edit_r_environ() # RETICULATE_PYTHON=~/Library/r-miniconda/envs/r-reticulate/bin/python
-
-# Restart Rstudio, check if calling python works:
-reticulate::py_available()
-reticulate::py_eval("1+1")
-reticulate::py_numpy_available(TRUE)
-reticulate::py_numpy_available()
-
-reticulate::py_install(c("numpy", "pandas", "matplotlib"))
-}
-```
-
-On Windows / if you use the system Python, run in the terminal:
-```{bash, install_python_packages, eval=FALSE}
-pip install pandas
-pip install matplotlib
-```
-
-Back to the actual code:
-
+## Transfer to Python
 
 ```{python, histograms, results="hide"}
 clim_py = r.clim
@@ -87,5 +53,25 @@ import matplotlib
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
 clim_py.hist(figsize=(20, 16), bins=5)
+```
+
+## Calculate summary statistics and identify extreme days
+
+```{python}
+#| label: temperature-stats
+#| echo: true
+
+# Calculate and display some basic statistics
+print("\n=== Summary Statistics for Temperature ===")
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+
+# Find and display the maximum and minimum temperature days
+print("\n=== Extreme Temperature Days ===")
+max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
+min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
+
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
