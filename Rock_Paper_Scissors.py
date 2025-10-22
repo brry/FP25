@@ -84,9 +84,9 @@ elif user_choice == 0 and computer_choice == 0:
 
 # When the user chooses paper
 if user_choice == 1 and computer_choice == 0:
-    print("You win!")
+    print("Congrats! You win!")
 elif user_choice == 1 and computer_choice == 2:
-    print("You lose!")
+    print("Oh no! You lose!")
 elif user_choice == 1 and computer_choice == 1:
     print("It's a draw!")
 
