@@ -15,6 +15,7 @@ execute:
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
+#knafeh wa 
 
 Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
@@ -77,4 +78,16 @@ min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
+
+```{python, echo=false}
+print("knafeh added this chunk as part of the first homework")
+alphabets = []
+
+# Uppercase letters
+for i in range(65, 91):
+    alphabets.append(chr(i))
+print(alphabets)
+```
+
+
 
