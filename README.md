@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-21, 22:10
+2025-10-22, 13:10
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -28,9 +28,6 @@ library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
-
-    Warning: .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec ->  dataDWD -> readDWD: R package 'data.table' available for fast reading of files, but system command 'unzip' could not be found. Now reading slowly.
-    See   https://bookdown.org/brry/rdwd/fread.html
 
 ## Visualise recent temperature
 
@@ -79,10 +76,10 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      12.973273
-    std        7.107655
+    mean      12.983818
+    std        7.101887
     min       -4.800000
-    25%        7.650000
+    25%        7.800000
     50%       14.150000
     75%       18.700000
     max       29.200000
@@ -110,3 +107,7 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 ```
 
     Coldest day: 2025-02-17 with -4.8°C
+
+    knafeh added this chunk as part of the first homework
+
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']

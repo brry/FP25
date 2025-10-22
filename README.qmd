@@ -6,16 +6,12 @@ date-format: YYYY-MM-DD, HH:MM
 format:
   gfm:
     embed-resources: false
-execute:
-	echo: true
-	
 ---
 
 
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
-#knafeh wa 
 
 Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
@@ -79,7 +75,7 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-```{python, echo=false}
+```{python, knafeh_chunk, echo=FALSE}
 print("knafeh added this chunk as part of the first homework")
 alphabets = []
 
