@@ -8,7 +8,7 @@ format:
     embed-resources: false
 ---
 
-Hey everyone! Welcome to Fundamentals of Programming 2025/26! 
+Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
@@ -75,7 +75,7 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-```{python, knafeh_chunk, echo=FALSE}
+```{python, knafeh_chunk, eval=FALSE}
 print("knafeh added this chunk as part of the first homework")
 alphabets = []
 
@@ -84,6 +84,5 @@ for i in range(65, 91):
     alphabets.append(chr(i))
 print(alphabets)
 print("wishing everyone a good start")
-
-
+```
 

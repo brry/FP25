@@ -1,4 +1,5 @@
 Version: 1.0
+ProjectId: 7a3dbbc9-eeda-4930-a08b-6dc9990c81f2
 
 RestoreWorkspace: Default
 SaveWorkspace: Default
@@ -13,3 +14,4 @@ RnwWeave: knitr
 LaTeX: XeLaTeX
 
 AutoAppendNewline: Yes
+LineEndingConversion: Windows
