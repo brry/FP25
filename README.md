@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-23, 11:25
+2025-10-23, 18:49
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -33,7 +33,7 @@ clim <- dataDWD(link, varnames=TRUE, force=24)
 ## Visualise recent temperature
 
 ``` r
-plotDWD(clim, "TMK.Lufttemperatur")
+plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
 ```
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
@@ -77,10 +77,10 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      12.983818
-    std        7.101887
+    mean      12.994545
+    std        7.096378
     min       -4.800000
-    25%        7.800000
+    25%        7.850000
     50%       14.150000
     75%       18.700000
     max       29.200000
