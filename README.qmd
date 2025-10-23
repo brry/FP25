@@ -75,11 +75,13 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-
 ```{python, yazan_chunk, echo=FALSE}
 print("Yazan added this chunk as part of the first homework")
 
 # Uppercase letters
+import string
+alphabets = list(string.ascii_lowercase)
+
 for i in range(65, 91):
     alphabets.append(chr(i))
 print(alphabets)

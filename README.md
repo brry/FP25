@@ -1,9 +1,9 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-23, 09:10
+2025-10-23, 11:10
 
-Hey everyone! Welcome to Fundamentals of Programming 2025/26! This is a
-github task in the course
+Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
+This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point -
@@ -109,10 +109,8 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
     Coldest day: 2025-02-17 with -4.8°C
 
-print(“knafeh added this chunk as part of the first homework”) alphabets
-= \[\]
+    Yazan added this chunk as part of the first homework
 
-# Uppercase letters
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-for i in range(65, 91): alphabets.append(chr(i)) print(alphabets)
-print(“wishing everyone a good start”)
+    wishing everyone a good start
