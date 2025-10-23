@@ -75,8 +75,8 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-```{python, knafeh_chunk, echo=FALSE}
-print("knafeh added this chunk as part of the first homework")
+```{python, yazan_chunk, echo=FALSE}
+print("Yazan added this chunk as part of the first homework")
 alphabets = []
 
 # Uppercase letters
