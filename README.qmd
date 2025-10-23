@@ -29,7 +29,7 @@ download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
 #| message: false
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, base=sub("^ftp://","",dwdbase))
+clim <- dataDWD(link, base=sub("^ftp://","",dwdbase), varnames=TRUE, force=24)
 ```
 
 ## Visualise recent temperature
@@ -87,4 +87,4 @@ for i in range(65, 91):
 print(alphabets)
 print("wishing everyone a good start")
 print("I love programming")
-
+```
