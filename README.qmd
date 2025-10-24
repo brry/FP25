@@ -8,7 +8,7 @@ format:
     embed-resources: false
 ---
 
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
+Hey everyone! Welcome to Fundamentals of Programming 2025/26!\
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
@@ -36,8 +36,8 @@ clim <- dataDWD(link, base=sub("^ftp://","",dwdbase), varnames=TRUE, force=24)
 
 ```{r, plot_clim}
 plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
+grid(col = "lightgrey", Ity = 2) # Add a subtle grid.
 ```
-
 
 ## Visualise recent Wind Speed
 
@@ -88,3 +88,14 @@ print(alphabets)
 print("wishing everyone a good start")
 print("I love programming")
 ```
+
+``` r
+#| label: matrix-example
+# Matrix
+n = 1:25
+n
+mat = matrix(n, nrow = 5)
+mat
+```
+
+\`\`\`
