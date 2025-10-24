@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-23, 23:10
+2025-10-24, 18:59
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -116,3 +116,6 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
     wishing everyone a good start
 
     I love programming
+
+I am a beginner in programming and excited to learn R and Python this
+semester!

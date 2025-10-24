@@ -88,3 +88,7 @@ print(alphabets)
 print("wishing everyone a good start")
 print("I love programming")
 ```
+I am a beginner in programming and excited to learn R and Python this semester!
+
+
+
