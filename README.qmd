@@ -90,8 +90,11 @@ print("I love programming")
 ```
 
 ``` r
+```{R, Mouna_chunk, echo=FALSE}
 #| label: matrix-example
+
 # Matrix
+
 n = 1:25
 n
 mat = matrix(n, nrow = 5)
@@ -99,3 +102,8 @@ mat
 ```
 
 \`\`\`
+
+
+
+
+
