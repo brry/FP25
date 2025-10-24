@@ -89,9 +89,14 @@ print("wishing everyone a good start")
 print("I love programming")
 ```
 
+```{R, Mouna, Warning=FALSE}
+#| label: matrix-example
 # Matrix
 n = 1:25
 n
+
 mat = matrix(n, nrow = 5)
 mat
+
+```
 
