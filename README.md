@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-23, 23:10
+2025-10-26, 09:10
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -26,8 +26,17 @@ download recent weather data using
 
 ``` r
 library(rdwd)
+
+# Define a local directory
+locdir <- "~/DWDdata"
+
+# Create it if it doesn't exist
+if (!dir.exists(locdir)) {
+  dir.create(locdir, recursive = TRUE)
+}
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, base=sub("^ftp://","",dwdbase), varnames=TRUE, force=24)
+
+clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
 ```
 
 ## Visualise recent temperature
@@ -77,10 +86,10 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      12.994545
-    std        7.096378
+    mean      13.007636
+    std        7.087870
     min       -4.800000
-    25%        7.850000
+    25%        8.025000
     50%       14.150000
     75%       18.700000
     max       29.200000
@@ -116,3 +125,24 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
     wishing everyone a good start
 
     I love programming
+
+``` r
+# label: matrix-example
+# Matrix
+n = 1:25
+n
+```
+
+     [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+``` r
+mat = matrix(n, nrow = 5)
+mat
+```
+
+         [,1] [,2] [,3] [,4] [,5]
+    [1,]    1    6   11   16   21
+    [2,]    2    7   12   17   22
+    [3,]    3    8   13   18   23
+    [4,]    4    9   14   19   24
+    [5,]    5   10   15   20   25

@@ -28,15 +28,24 @@ download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
 ```{r, get_weather_data}
 #| message: false
 library(rdwd)
+
+# Define a local directory
+locdir <- "~/DWDdata"
+
+# Create it if it doesn't exist
+if (!dir.exists(locdir)) {
+  dir.create(locdir, recursive = TRUE)
+}
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, base=sub("^ftp://","",dwdbase), varnames=TRUE, force=24)
+
+clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
 ```
 
 ## Visualise recent temperature
 
 ```{r, plot_clim}
 plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
-grid(col = "lightgrey", Ity = 2) # Add a subtle grid.
+
 ```
 
 ## Visualise recent Wind Speed
@@ -90,11 +99,12 @@ print("I love programming")
 ```
 
 ```{R, Mouna, Warning=FALSE}
-#| label: matrix-example
+# label: matrix-example
 # Matrix
 n = 1:25
 n
 
 mat = matrix(n, nrow = 5)
 mat
+
 ```
