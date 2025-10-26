@@ -70,7 +70,7 @@ clim_py.hist(figsize=(20, 16), bins=5)
 
 ![](README_files/figure-commonmark/histograms-1.png)
 
-## Calculate Summary Statistics and Identify Extreme Days
+## Calculate Summary Statistics And Identify Extreme Days
 
 ``` python
 # Calculate and display some basic statistics
