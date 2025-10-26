@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-26, 21:05
+2025-10-26, 21:28
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -49,7 +49,7 @@ plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col 
 
 ## Visualise recent Wind Speed
 
-**Recent Windspeed in years 2024 and 2025**
+—————————-**Recent Wind Speed in years 2024 and 2025**—————————-
 
 ``` r
 plotDWD(clim, "FX.Windspitze")
