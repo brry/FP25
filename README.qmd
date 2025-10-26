@@ -15,6 +15,8 @@ This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fp
 
 Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
+Due to people not pulling before pushing, we're losing several edits. See e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a nicely animated version history (works for any file on github).
+
 ## **Get weather data**
 
 ```{r, packages, warning=FALSE, message=FALSE}

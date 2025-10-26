@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-26, 21:28
+2025-10-26, 22:15
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -12,6 +12,11 @@ we’ll get to that throughout the course :)*
 Please go through the new [installation
 guide](https://github.com/brry/fpsetup#software-installation-guide)
 first!
+
+Due to people not pulling before pushing, we’re losing several edits.
+See
+e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd)
+for a nicely animated version history (works for any file on github).
 
 ## **Get weather data**
 
@@ -49,7 +54,7 @@ plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col 
 
 ## Visualise recent Wind Speed
 
-—————————-**Recent Wind Speed in years 2024 and 2025**—————————-
+**Recent Windspeed in years 2024 and 2025**
 
 ``` r
 plotDWD(clim, "FX.Windspitze")
