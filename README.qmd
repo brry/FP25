@@ -15,7 +15,7 @@ This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fp
 
 Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
-## Get weather data
+## **Get weather data**
 
 ```{r, packages, warning=FALSE, message=FALSE}
 if(!requireNamespace("rdwd", quietly=TRUE))
@@ -80,8 +80,8 @@ print("\n=== Extreme Temperature Days ===")
 max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
 min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 
-print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
 ```{python, yazan_chunk, echo=FALSE}
