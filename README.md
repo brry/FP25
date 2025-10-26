@@ -1,6 +1,10 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
+<<<<<<< HEAD
 2025-10-26, 09:46
+=======
+2025-10-24, 18:59
+>>>>>>> 416bcaf463a102ed79886d065a59eac5591fdc32
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -126,6 +130,7 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
     I love programming
 
+<<<<<<< HEAD
 ``` r
 # label: matrix-example
 # Matrix
@@ -146,3 +151,7 @@ mat
     [3,]    3    8   13   18   23
     [4,]    4    9   14   19   24
     [5,]    5   10   15   20   25
+=======
+I am a beginner in programming and excited to learn R and Python this
+semester!
+>>>>>>> 416bcaf463a102ed79886d065a59eac5591fdc32
