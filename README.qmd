@@ -49,7 +49,12 @@ plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col 
 ```
 
 ## Visualise recent Wind Speed
+```{python}
+#| echo: false
+#| results: asis
 
+print("**Recent Windspeed in years 2024 and 2025**")
+```
 ```{r, plot_Wind_Speed}
 plotDWD(clim, "FX.Windspitze")
 ```

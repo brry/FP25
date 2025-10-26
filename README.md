@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-26, 19:15
+2025-10-26, 21:05
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -13,7 +13,7 @@ Please go through the new [installation
 guide](https://github.com/brry/fpsetup#software-installation-guide)
 first!
 
-## Get weather data
+## **Get weather data**
 
 ``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
@@ -48,6 +48,8 @@ plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col 
 ![](README_files/figure-commonmark/plot_clim-1.png)
 
 ## Visualise recent Wind Speed
+
+**Recent Windspeed in years 2024 and 2025**
 
 ``` r
 plotDWD(clim, "FX.Windspitze")
@@ -107,16 +109,16 @@ print("\n=== Extreme Temperature Days ===")
 max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
 min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 
-print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-    Hottest day: 2025-07-02 with 29.2°C
+    Hottest day throughout the years: 2025-07-02 with 29.2°C
 
 ``` python
-print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-    Coldest day: 2025-02-17 with -4.8°C
+    Coldest day throughout the years: 2025-02-17 with -4.8°C
 
     Yazan added this chunk as part of the first homework
 
