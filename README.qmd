@@ -97,7 +97,7 @@ print(alphabets)
 print("wishing everyone a good start")
 print("I love programming")
 ```
-<<<<<<< HEAD
+
 
 ```{R, Mouna, Warning=FALSE}
 # label: matrix-example
@@ -109,9 +109,4 @@ mat = matrix(n, nrow = 5)
 mat
 
 ```
-=======
-I am a beginner in programming and excited to learn R and Python this semester!
 
-
-
->>>>>>> 416bcaf463a102ed79886d065a59eac5591fdc32
