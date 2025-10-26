@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-26, 10:27
+2025-10-26, 19:09
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -86,10 +86,10 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.007636
-    std        7.087870
+    mean      13.027091
+    std        7.069930
     min       -4.800000
-    25%        8.025000
+    25%        8.125000
     50%       14.150000
     75%       18.700000
     max       29.200000
