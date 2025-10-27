@@ -1,0 +1,8 @@
+---
+title: "HW 1 Yazan"
+format: html
+---
+
+if(!requireNamespace("rdwd", quietly=TRUE))
+    install.packages("rdwd")
+rdwd::updateRdwd()

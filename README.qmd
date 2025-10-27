@@ -78,7 +78,7 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
 ```{python, yazan_chunk, echo=FALSE}
 print("Yazan added this chunk as part of the first homework")
-
+alphabets= []
 # Uppercase letters
 for i in range(65, 91):
     alphabets.append(chr(i))
