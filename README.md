@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-27, 21:12
+2025-10-27, 21:16
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
