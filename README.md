@@ -1,10 +1,14 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
 <<<<<<< HEAD
+<<<<<<< HEAD
 2025-10-27, 14:10
 =======
 2025-10-27, 13:54
 >>>>>>> d444abd4a641a96029a6c9cabf01c71d87e22a58
+=======
+2025-10-27, 14:11
+>>>>>>> 7a4793c491e66a78e70afb11e219cfa2c9e0cea5
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -88,8 +92,8 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.027091
-    std        7.069930
+    mean      13.027636
+    std        7.069437
     min       -4.800000
     25%        8.125000
     50%       14.150000
@@ -131,7 +135,7 @@ print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM'
 
     wishing everyone a good start
 
-    I love programming
+    I love programming :D!!
 
     Happy coding!
 
