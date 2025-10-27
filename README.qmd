@@ -21,7 +21,9 @@ Due to people not pulling before pushing, we're losing several edits. See e.g. [
 
 ## Get weather data
 
-```{r, packages, message=FALSE, code-fold: true} 
+```{r, packages, message=FALSE} 
+#| code-fold: true
+
 if(!requireNamespace("rdwd", quietly=TRUE))
 	install.packages("rdwd")
 rdwd::updateRdwd()
