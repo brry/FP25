@@ -1,20 +1,7 @@
-# Fundamentals of Programming October 2025
-Berry Boessenkool
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-2025-10-27, 14:10
-=======
-2025-10-27, 13:54
->>>>>>> d444abd4a641a96029a6c9cabf01c71d87e22a58
-=======
-2025-10-27, 14:11
->>>>>>> 7a4793c491e66a78e70afb11e219cfa2c9e0cea5
-=======
-2025-10-27, 14:54
->>>>>>> 452a1f088174a3966a4c78aee69b6eb465b822ef
+# Fundamentals of Programming 2025
+Berry Boessenkool;
+2025-10-27, 21:12
 
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
@@ -25,12 +12,15 @@ Please go through the new [installation
 guide](https://github.com/brry/fpsetup#software-installation-guide)
 first!
 
+Please **pull** before you **push**!!!!
+
 Due to people not pulling before pushing, we’re losing several edits.
 See
 e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd)
 for a nicely animated version history (works for any file on github).
+Sorry if your edits got lost - feel free to add them again.
 
-## **Get weather data**
+## Get weather data
 
 ``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
@@ -43,36 +33,27 @@ download recent weather data using
 
 ``` r
 library(rdwd)
-
-# Define a local directory
-locdir <- "~/DWDdata"
-
-# Create it if it doesn't exist
-if (!dir.exists(locdir)) {
-  dir.create(locdir, recursive = TRUE)
-}
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-
-clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
+link <- sub("^ftp://", "", link) # for student with blocked FTP access
+dwdbase <- sub("^ftp://", "", dwdbase)
+clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
 ```
 
-## Visualise Recent Temperature
+## Visualise recent temperature
 
 ``` r
-plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
+plotDWD(clim, "TMK.Lufttemperatur")
 ```
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
 
-## Visualise recent Wind Speed
-
-**Recent Windspeed in years 2024 and 2025**
+## Visualise recent wind speed
 
 ``` r
 plotDWD(clim, "FX.Windspitze")
 ```
 
-![](README_files/figure-commonmark/plot_Wind_Speed-1.png)
+![](README_files/figure-commonmark/plot_wind_speed-1.png)
 
 ## Transfer to Python
 
@@ -89,7 +70,7 @@ clim_py.hist(figsize=(20, 16), bins=5)
 
 ![](README_files/figure-commonmark/histograms-1.png)
 
-## Calculate Summary Statistics And Identify Extreme Days
+## Calculate summary statistics and identify extreme days
 
 ``` python
 # Calculate and display some basic statistics
@@ -105,8 +86,8 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.027636
-    std        7.069437
+    mean      13.027091
+    std        7.069930
     min       -4.800000
     25%        8.125000
     50%       14.150000
@@ -126,63 +107,13 @@ print("\n=== Extreme Temperature Days ===")
 max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
 min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 
-print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-    Hottest day throughout the years: 2025-07-02 with 29.2°C
+    Hottest day: 2025-07-02 with 29.2°C
 
 ``` python
-print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-    Coldest day throughout the years: 2025-02-17 with -4.8°C
-
-    Yazan added this chunk as part of the first homework
-
-<<<<<<< HEAD
-    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-    wishing everyone a good start
-=======
-    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-    wishing everyone a good start
-
-    I love programming
-
-    Happy coding!
-
-``` r
-# label: matrix-example
-# Matrix
-n = 1:25
-n
-```
-
-     [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-
-``` r
-mat = matrix(n, nrow = 5)
-mat
-```
-
-         [,1] [,2] [,3] [,4] [,5]
-    [1,]    1    6   11   16   21
-    [2,]    2    7   12   17   22
-    [3,]    3    8   13   18   23
-    [4,]    4    9   14   19   24
-    [5,]    5   10   15   20   25
-
-<<<<<<< HEAD
-print(“Whoever reads this, likes to code”) from datetime import datetime
-date_and_time = datetime.now() date_and_time =
-date_and_time.strftime(“%H:%M:%S”) print(f”When you’re reading this, it
-is currently: {date_and_time}.”)
->>>>>>> d444abd4a641a96029a6c9cabf01c71d87e22a58
-=======
-    Whoever reads this, likes to code
-
-    When you're reading this, it is currently: 14:54:57.
-
-    Success!!
->>>>>>> 452a1f088174a3966a4c78aee69b6eb465b822ef
+    Coldest day: 2025-02-17 with -4.8°C

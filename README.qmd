@@ -1,26 +1,27 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 ---
-title: "Fundamentals of Programming October 2025"
-author: "Berry Boessenkool"
+title: "Fundamentals of Programming 2025"
+author: "Berry Boessenkool; "
 date: now
-date-format: YYYY-MM-DD, HH:MM
+date-format: YYYY-MM-DD, HH:mm
 format:
   gfm:
     embed-resources: false
 ---
 
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
 
 *note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
 
 Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
 
+Please **pull** before you **push**!!!!
+
+Due to people not pulling before pushing, we're losing several edits. See e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a nicely animated version history (works for any file on github). Sorry if your edits got lost - feel free to add them again.
+
+
 ## Get weather data
 
-```{r, packages, warning=FALSE, message=FALSE}
+```{r, packages, message=FALSE}
 if(!requireNamespace("rdwd", quietly=TRUE))
 	install.packages("rdwd")
 rdwd::updateRdwd()
@@ -32,7 +33,9 @@ download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
 #| message: false
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, varnames=TRUE, force=24)
+link <- sub("^ftp://", "", link) # for student with blocked FTP access
+dwdbase <- sub("^ftp://", "", dwdbase)
+clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
 ```
 
 ## Visualise recent temperature
@@ -42,9 +45,9 @@ plotDWD(clim, "TMK.Lufttemperatur")
 ```
 
 
-## Visualise recent Wind Speed
+## Visualise recent wind speed
 
-```{r, plot_Wind_Speed}
+```{r, plot_wind_speed}
 plotDWD(clim, "FX.Windspitze")
 ```
 
@@ -58,7 +61,7 @@ clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
 clim_py.hist(figsize=(20, 16), bins=5)
 ```
 
-## Calculate Summary Statistics and Identify Extreme Days
+## Calculate summary statistics and identify extreme days
 
 ```{python}
 #| label: temperature-stats
@@ -78,383 +81,3 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-
-```{python, yazan_chunk, echo=FALSE}
-print("Yazan added this chunk as part of the first homework")
-alphabets= []
-# Uppercase letters
-for i in range(65, 91):
-    alphabets.append(chr(i))
-print(alphabets)
-print("wishing everyone a good start")
-```
-
-=======
----
-title: "Fundamentals of Programming October 2025"
-author: "Berry Boessenkool"
-date: now
-date-format: YYYY-MM-DD, HH:mm
-format:
-  gfm:
-    embed-resources: false
----
-
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!\
-This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
-
-*note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
-
-Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
-
-Due to people not pulling before pushing, we're losing several edits. See e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a nicely animated version history (works for any file on github).
-
-## **Get weather data**
-
-```{r, packages, warning=FALSE, message=FALSE}
-if(!requireNamespace("rdwd", quietly=TRUE))
-	install.packages("rdwd")
-rdwd::updateRdwd()
-```
-
-download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
-
-```{r, get_weather_data}
-#| message: false
-library(rdwd)
-link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, varnames=TRUE, force=24)
-```
-
-## Visualise Recent Temperature
-
-```{r, plot_clim}
-plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
-
-```
-
-## Visualise recent Wind Speed
-```{python}
-#| echo: false
-#| results: asis
-
-print("**Recent Windspeed in years 2024 and 2025**")
-```
-```{r, plot_Wind_Speed}
-plotDWD(clim, "FX.Windspitze")
-```
-
-## Transfer to Python
-
-```{python, histograms, results="hide"}
-clim_py = r.clim
-import matplotlib
-print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
-clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
-clim_py.hist(figsize=(20, 16), bins=5)
-```
-
-## Calculate Summary Statistics And Identify Extreme Days
-
-```{python}
-#| label: temperature-stats
-#| echo: true
-
-# Calculate and display some basic statistics
-print("\n=== Summary Statistics for Temperature ===")
-temp_stats = clim_py['TMK.Lufttemperatur'].describe()
-print(temp_stats)
-
-# Find and display the maximum and minimum temperature days
-print("\n=== Extreme Temperature Days ===")
-max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
-min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
-
-print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-```
-
-```{python, yazan_chunk, echo=FALSE}
-print("Yazan added this chunk as part of the first homework")
-
-# Uppercase letters
-import string
-alphabets = list(string.ascii_lowercase)
-
-for i in range(65, 91):
-    alphabets.append(chr(i))
-print(alphabets)
-print("wishing everyone a good start")
-print("I love programming")
-print("Happy coding!")
-```
-
-
-```{R, Mouna, Warning=FALSE}
-# label: matrix-example
-# Matrix
-n = 1:25
-n
-
-mat = matrix(n, nrow = 5)
-mat
-
-```
-
-```{python, Philipp, echo=FALSE}
-print("Whoever reads this, likes to code")
-from datetime import datetime
-date_and_time = datetime.now()
-date_and_time = date_and_time.strftime("%H:%M:%S")
-print(f"When you're reading this, it is currently: {date_and_time}.")
->>>>>>> d444abd4a641a96029a6c9cabf01c71d87e22a58
-=======
----
-title: "Fundamentals of Programming October 2025"
-author: "Berry Boessenkool"
-date: now
-date-format: YYYY-MM-DD, HH:mm
-format:
-  gfm:
-    embed-resources: false
----
-
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!\
-This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
-
-*note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
-
-Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
-
-Due to people not pulling before pushing, we're losing several edits. See e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a nicely animated version history (works for any file on github).
-
-## **Get weather data**
-
-```{r, packages, warning=FALSE, message=FALSE}
-if(!requireNamespace("rdwd", quietly=TRUE))
-	install.packages("rdwd")
-rdwd::updateRdwd()
-```
-
-download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
-
-```{r, get_weather_data}
-#| message: false
-library(rdwd)
-link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, varnames=TRUE, force=24)
-```
-
-## Visualise Recent Temperature
-
-```{r, plot_clim}
-plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
-
-```
-
-## Visualise recent Wind Speed
-```{python}
-#| echo: false
-#| results: asis
-
-print("**Recent Windspeed in years 2024 and 2025**")
-```
-```{r, plot_Wind_Speed}
-plotDWD(clim, "FX.Windspitze")
-```
-
-## Transfer to Python
-
-```{python, histograms, results="hide"}
-clim_py = r.clim
-import matplotlib
-print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
-clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
-clim_py.hist(figsize=(20, 16), bins=5)
-```
-
-## Calculate Summary Statistics And Identify Extreme Days
-
-```{python}
-#| label: temperature-stats
-#| echo: true
-
-# Calculate and display some basic statistics
-print("\n=== Summary Statistics for Temperature ===")
-temp_stats = clim_py['TMK.Lufttemperatur'].describe()
-print(temp_stats)
-
-# Find and display the maximum and minimum temperature days
-print("\n=== Extreme Temperature Days ===")
-max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
-min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
-
-print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-```
-
-```{python, yazan_chunk, echo=FALSE}
-print("Yazan added this chunk as part of the first homework")
-
-# Uppercase letters
-import string
-alphabets = list(string.ascii_lowercase)
-
-for i in range(65, 91):
-    alphabets.append(chr(i))
-print(alphabets)
-print("wishing everyone a good start")
-print("I love programming :D!!")
-print("Happy coding!")
-```
-
-
-```{R, Mouna, Warning=FALSE}
-# label: matrix-example
-# Matrix
-n = 1:25
-n
-
-mat = matrix(n, nrow = 5)
-mat
-
-```
-
-```{python, Philipp, echo=FALSE}
-print("Whoever reads this, likes to code")
-from datetime import datetime
-date_and_time = datetime.now()
-date_and_time = date_and_time.strftime("%H:%M:%S")
-print(f"When you're reading this, it is currently: {date_and_time}.")
->>>>>>> 7a4793c491e66a78e70afb11e219cfa2c9e0cea5
-=======
----
-title: "Fundamentals of Programming October 2025"
-author: "Berry Boessenkool"
-date: now
-date-format: YYYY-MM-DD, HH:mm
-format:
-  gfm:
-    embed-resources: false
----
-
-Hey everyone! Welcome to Fundamentals of Programming 2025/26!\
-This is a github task in the course [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
-
-*note that it is fine to not really understand the code at this point - we'll get to that throughout the course :)*
-
-Please go through the new [installation guide](https://github.com/brry/fpsetup#software-installation-guide) first!
-
-Due to people not pulling before pushing, we're losing several edits. See e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a nicely animated version history (works for any file on github).
-
-## **Get weather data**
-
-```{r, packages, warning=FALSE, message=FALSE}
-if(!requireNamespace("rdwd", quietly=TRUE))
-	install.packages("rdwd")
-rdwd::updateRdwd()
-```
-
-download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
-
-```{r, get_weather_data}
-#| message: false
-library(rdwd)
-
-# Define a local directory
-locdir <- "~/DWDdata"
-
-# Create it if it doesn't exist
-if (!dir.exists(locdir)) {
-  dir.create(locdir, recursive = TRUE)
-}
-link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-
-clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
-```
-
-## Visualise Recent Temperature
-
-```{r, plot_clim, fold=TRUE}
-plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
-
-```
-
-## Visualise recent Wind Speed
-```{python}
-#| echo: false
-#| results: asis
-
-print("**Recent Windspeed in years 2024 and 2025**")
-```
-```{r, plot_Wind_Speed}
-plotDWD(clim, "FX.Windspitze")
-```
-
-## Transfer to Python
-
-```{python, histograms, results="hide"}
-clim_py = r.clim
-import matplotlib
-print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
-clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
-clim_py.hist(figsize=(20, 16), bins=5)
-```
-
-## Calculate Summary Statistics And Identify Extreme Days
-
-```{python}
-#| label: temperature-stats
-#| echo: true
-
-# Calculate and display some basic statistics
-print("\n=== Summary Statistics for Temperature ===")
-temp_stats = clim_py['TMK.Lufttemperatur'].describe()
-print(temp_stats)
-
-# Find and display the maximum and minimum temperature days
-print("\n=== Extreme Temperature Days ===")
-max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
-min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
-
-print(f"Hottest day throughout the years: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-```
-
-```{python, yazan_chunk, echo=FALSE}
-print("Yazan added this chunk as part of the first homework")
-
-# Uppercase letters
-import string
-alphabets = list(string.ascii_lowercase)
-
-for i in range(65, 91):
-    alphabets.append(chr(i))
-print(alphabets)
-print("wishing everyone a good start")
-print("I love programming")
-print("Happy coding!")
-```
-
-
-```{R, Mouna, Warning=FALSE}
-# label: matrix-example
-# Matrix
-n = 1:25
-n
-
-mat = matrix(n, nrow = 5)
-mat
-
-```
-
-
-```{python, Philipp, echo = FALSE}
-from datetime import datetime
-print("Whoever reads this, likes to code")
-date_and_time = datetime.now()
-date_and_time = date_and_time.strftime("%H:%M:%S")
-print(f"When you're reading this, it is currently: {date_and_time}.")
-print("Success!!")
-```
->>>>>>> 452a1f088174a3966a4c78aee69b6eb465b822ef
