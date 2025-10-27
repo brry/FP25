@@ -118,9 +118,11 @@ mat
 
 ```
 
-```{python, Philipp, echo=FALSE}
-print("Whoever reads this, likes to code")
+
+```{python, Philipp, echo = FALSE}
 from datetime import datetime
+print("Whoever reads this, likes to code")
 date_and_time = datetime.now()
 date_and_time = date_and_time.strftime("%H:%M:%S")
 print(f"When you're reading this, it is currently: {date_and_time}.")
+```

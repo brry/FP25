@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-27, 13:29
+2025-10-27, 14:02
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -156,7 +156,6 @@ mat
     [4,]    4    9   14   19   24
     [5,]    5   10   15   20   25
 
-print(“Whoever reads this, likes to code”) from datetime import datetime
-date_and_time = datetime.now() date_and_time =
-date_and_time.strftime(“%H:%M:%S”) print(f”When you’re reading this, it
-is currently: {date_and_time}.”)
+    Whoever reads this, likes to code
+
+    When you're reading this, it is currently: 14:02:43.
