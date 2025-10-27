@@ -2,6 +2,7 @@
 Berry Boessenkool
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2025-10-27, 14:10
 =======
 2025-10-27, 13:54
@@ -9,6 +10,9 @@ Berry Boessenkool
 =======
 2025-10-27, 14:11
 >>>>>>> 7a4793c491e66a78e70afb11e219cfa2c9e0cea5
+=======
+2025-10-27, 14:54
+>>>>>>> 452a1f088174a3966a4c78aee69b6eb465b822ef
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -39,8 +43,17 @@ download recent weather data using
 
 ``` r
 library(rdwd)
+
+# Define a local directory
+locdir <- "~/DWDdata"
+
+# Create it if it doesn't exist
+if (!dir.exists(locdir)) {
+  dir.create(locdir, recursive = TRUE)
+}
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, varnames=TRUE, force=24)
+
+clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
 ```
 
 ## Visualise Recent Temperature
@@ -135,7 +148,7 @@ print(f"Coldest day throughout the years: {r.clim.loc[min_temp_idx, 'MESS_DATUM'
 
     wishing everyone a good start
 
-    I love programming :D!!
+    I love programming
 
     Happy coding!
 
@@ -160,8 +173,16 @@ mat
     [4,]    4    9   14   19   24
     [5,]    5   10   15   20   25
 
+<<<<<<< HEAD
 print(“Whoever reads this, likes to code”) from datetime import datetime
 date_and_time = datetime.now() date_and_time =
 date_and_time.strftime(“%H:%M:%S”) print(f”When you’re reading this, it
 is currently: {date_and_time}.”)
 >>>>>>> d444abd4a641a96029a6c9cabf01c71d87e22a58
+=======
+    Whoever reads this, likes to code
+
+    When you're reading this, it is currently: 14:54:57.
+
+    Success!!
+>>>>>>> 452a1f088174a3966a4c78aee69b6eb465b822ef
