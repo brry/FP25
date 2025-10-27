@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-27, 13:29
+2025-10-27, 13:54
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -31,17 +31,8 @@ download recent weather data using
 
 ``` r
 library(rdwd)
-
-# Define a local directory
-locdir <- "~/DWDdata"
-
-# Create it if it doesn't exist
-if (!dir.exists(locdir)) {
-  dir.create(locdir, recursive = TRUE)
-}
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-
-clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
+clim <- dataDWD(link, varnames=TRUE, force=24)
 ```
 
 ## Visualise Recent Temperature
@@ -93,8 +84,8 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.027636
-    std        7.069437
+    mean      13.027091
+    std        7.069930
     min       -4.800000
     25%        8.125000
     50%       14.150000
