@@ -43,7 +43,7 @@ link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
 ```
 
-## Visualise recent temperature
+## Visualise Recent Temperature
 
 ```{r, plot_clim}
 plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
