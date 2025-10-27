@@ -45,7 +45,7 @@ clim <- dataDWD(link,dir = locdir, varnames=TRUE, force=24)
 
 ## Visualise Recent Temperature
 
-```{r, plot_clim}
+```{r, plot_clim, fold=TRUE}
 plotDWD(clim, "TMK.Lufttemperatur", ylab = "mean air temperature (in °C)", col = "darkgreen")
 
 ```
