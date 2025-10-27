@@ -1,6 +1,6 @@
 # Fundamentals of Programming October 2025
 Berry Boessenkool
-2025-10-27, 14:02
+2025-10-27, 14:46
 
 Hey everyone! Welcome to Fundamentals of Programming 2025/26!  
 This is a github task in the course
@@ -158,4 +158,6 @@ mat
 
     Whoever reads this, likes to code
 
-    When you're reading this, it is currently: 14:02:43.
+    When you're reading this, it is currently: 14:46:09.
+
+    Success!!
