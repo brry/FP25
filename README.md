@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-28, 10:47
+2025-10-28, 11:42
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -130,3 +130,30 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 ```
 
     Coldest day: 2025-02-17 with -4.8°C
+
+``` python
+print("Yazan Added this chunk to make the summary statistics look more organized as aprt pf the first homework")
+```
+
+    Yazan Added this chunk to make the summary statistics look more organized as aprt pf the first homework
+
+``` python
+print("\n=== Summary Statistics for Temperature ===")
+```
+
+
+    === Summary Statistics for Temperature ===
+
+``` python
+temp_stats = clim_py['TMK.Lufttemperatur'].describe().round(2)
+print(temp_stats.to_string())
+```
+
+    count    550.00
+    mean      13.03
+    std        7.07
+    min       -4.80
+    25%        8.12
+    50%       14.15
+    75%       18.70
+    max       29.20
