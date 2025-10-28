@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-28, 11:42
+2025-10-28, 22:02
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -40,6 +40,12 @@ download recent weather data using
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 link <- sub("^ftp://", "", link) # for student with blocked FTP access
+print("Data download initiated") # Added by Osama Aldweik – added a message to confirm download start
+```
+
+    [1] "Data download initiated"
+
+``` r
 dwdbase <- sub("^ftp://", "", dwdbase)
 clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
 ```
@@ -99,8 +105,8 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.027636
-    std        7.069437
+    mean      13.030909
+    std        7.066223
     min       -4.800000
     25%        8.125000
     50%       14.150000

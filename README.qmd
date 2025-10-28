@@ -36,6 +36,7 @@ download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 link <- sub("^ftp://", "", link) # for student with blocked FTP access
+print("Data download initiated") # Added by Osama Aldweik – added a message to confirm download start
 dwdbase <- sub("^ftp://", "", dwdbase)
 clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
 ```
