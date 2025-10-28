@@ -46,11 +46,16 @@ clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
 plotDWD(clim, "TMK.Lufttemperatur")
 ```
 
-
 ## Visualise recent wind speed
 
 ```{r, plot_wind_speed}
 plotDWD(clim, "FX.Windspitze")
+```
+
+## Visualise number of sunshine hours
+
+```{r, plot_sunshine_hours}
+plotDWD(clim, "SDK.Sonnenscheindauer")
 ```
 
 ## Transfer to Python

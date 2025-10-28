@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-27, 21:16
+2025-10-28, 10:47
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -22,11 +22,16 @@ Sorry if your edits got lost - feel free to add them again.
 
 ## Get weather data
 
+<details class="code-fold">
+<summary>Code</summary>
+
 ``` r
 if(!requireNamespace("rdwd", quietly=TRUE))
     install.packages("rdwd")
 rdwd::updateRdwd()
 ```
+
+</details>
 
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
@@ -54,6 +59,14 @@ plotDWD(clim, "FX.Windspitze")
 ```
 
 ![](README_files/figure-commonmark/plot_wind_speed-1.png)
+
+## Visualise number of sunshine hours
+
+``` r
+plotDWD(clim, "SDK.Sonnenscheindauer")
+```
+
+![](README_files/figure-commonmark/plot_sunshine_hours-1.png)
 
 ## Transfer to Python
 
@@ -86,8 +99,8 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.027091
-    std        7.069930
+    mean      13.027636
+    std        7.069437
     min       -4.800000
     25%        8.125000
     50%       14.150000
