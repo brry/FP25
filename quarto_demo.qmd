@@ -1,0 +1,50 @@
+---
+title: "Q-demo"
+author: "Berry"
+format: revealjs
+editor: visual
+incremental: true
+embed-resources: true
+echo: true
+chalkboard: false
+---
+
+## Quarto
+
+. . .
+
+Quarto enables you to weave together content and executable code into a finished presentation.
+
+. . .
+
+To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r addition}
+#| eval: false
+1 + log(300)
+```
+
+## Figures
+
+
+![figure caption](figure.png)
+
+
+## Figs from Code
+
+```{r, iris_graph}
+plot(iris[, 1:4], col=iris$Species,
+	 main="iris")
+```
+
