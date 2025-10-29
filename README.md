@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-28, 22:02
+2025-10-29, 13:00
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -94,72 +94,30 @@ clim_py.hist(figsize=(20, 16), bins=5)
 ``` python
 # Calculate and display some basic statistics
 print("\n=== Summary Statistics for Temperature ===")
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+
+# Find and display the maximum and minimum temperature days
+print("\n=== Extreme Temperature Days ===")
+max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
+min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
+
+print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
 
     === Summary Statistics for Temperature ===
-
-``` python
-temp_stats = clim_py['TMK.Lufttemperatur'].describe()
-print(temp_stats)
-```
-
     count    550.000000
-    mean      13.030909
-    std        7.066223
+    mean      13.028000
+    std        7.067967
     min       -4.800000
-    25%        8.125000
+    25%        8.100000
     50%       14.150000
     75%       18.700000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 
-``` python
-# Find and display the maximum and minimum temperature days
-print("\n=== Extreme Temperature Days ===")
-```
-
-
     === Extreme Temperature Days ===
-
-``` python
-max_temp_idx = clim_py['TMK.Lufttemperatur'].idxmax()
-min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
-
-print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-```
-
     Hottest day: 2025-07-02 with 29.2°C
-
-``` python
-print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
-```
-
     Coldest day: 2025-02-17 with -4.8°C
-
-``` python
-print("Yazan Added this chunk to make the summary statistics look more organized as aprt pf the first homework")
-```
-
-    Yazan Added this chunk to make the summary statistics look more organized as aprt pf the first homework
-
-``` python
-print("\n=== Summary Statistics for Temperature ===")
-```
-
-
-    === Summary Statistics for Temperature ===
-
-``` python
-temp_stats = clim_py['TMK.Lufttemperatur'].describe().round(2)
-print(temp_stats.to_string())
-```
-
-    count    550.00
-    mean      13.03
-    std        7.07
-    min       -4.80
-    25%        8.12
-    50%       14.15
-    75%       18.70
-    max       29.20

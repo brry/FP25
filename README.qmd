@@ -74,6 +74,7 @@ clim_py.hist(figsize=(20, 16), bins=5)
 ```{python}
 #| label: temperature-stats
 #| echo: true
+#| results: hold
 
 # Calculate and display some basic statistics
 print("\n=== Summary Statistics for Temperature ===")
@@ -89,11 +90,4 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 ```
 
-```{python}
-print("Yazan Added this chunk to make the summary statistics look more organized as aprt pf the first homework")
-print("\n=== Summary Statistics for Temperature ===")
-temp_stats = clim_py['TMK.Lufttemperatur'].describe().round(2)
-print(temp_stats.to_string())
-
-```
 
