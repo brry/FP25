@@ -38,7 +38,7 @@ link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 link <- sub("^ftp://", "", link) # for student with blocked FTP access
 print("Data download initiated") # Added by Osama Aldweik – added a message to confirm download start
 dwdbase <- sub("^ftp://", "", dwdbase)
-clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
+clim <- dataDWD(sub("^ftp://","",link), base=sub("^ftp://","",dwdbase), varnames=TRUE, force=TRUE) 
 ```
 
 ## Visualise recent temperature

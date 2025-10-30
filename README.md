@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-29, 13:00
+2025-10-30, 21:59
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -47,7 +47,7 @@ print("Data download initiated") # Added by Osama Aldweik – added a message to
 
 ``` r
 dwdbase <- sub("^ftp://", "", dwdbase)
-clim <- dataDWD(link, base=dwdbase, varnames=TRUE, force=24)
+clim <- dataDWD(sub("^ftp://","",link), base=sub("^ftp://","",dwdbase), varnames=TRUE, force=TRUE) 
 ```
 
 ## Visualise recent temperature
@@ -109,8 +109,8 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      13.028000
-    std        7.067967
+    mean      13.019455
+    std        7.069509
     min       -4.800000
     25%        8.100000
     50%       14.150000
