@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-10-30, 21:59
+2025-11-03, 13:14
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -14,13 +14,16 @@ first!
 
 Please **pull** before you **push**!!!!
 
-Due to people not pulling before pushing, we’re losing several edits.
-See
-e.g. [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd)
+See [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd)
 for a nicely animated version history (works for any file on github).
-Sorry if your edits got lost - feel free to add them again.
+Sorry if your edits got lost in my clean-up - feel free to add them
+again.
 
-## Get weather data
+## load modules / packages
+
+``` python
+import matplotlib, pandas
+```
 
 <details class="code-fold">
 <summary>Code</summary>
@@ -33,21 +36,15 @@ rdwd::updateRdwd()
 
 </details>
 
+## Get weather data
+
 download recent weather data using
 [rdwd](https://bookdown.org/brry/rdwd/)
 
 ``` r
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-link <- sub("^ftp://", "", link) # for student with blocked FTP access
-print("Data download initiated") # Added by Osama Aldweik – added a message to confirm download start
-```
-
-    [1] "Data download initiated"
-
-``` r
-dwdbase <- sub("^ftp://", "", dwdbase)
-clim <- dataDWD(sub("^ftp://","",link), base=sub("^ftp://","",dwdbase), varnames=TRUE, force=TRUE) 
+clim <- dataDWD(link, varnames=TRUE, force=24, removeftp=TRUE) 
 ```
 
 ## Visualise recent temperature
@@ -58,27 +55,10 @@ plotDWD(clim, "TMK.Lufttemperatur")
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
 
-## Visualise recent wind speed
-
-``` r
-plotDWD(clim, "FX.Windspitze")
-```
-
-![](README_files/figure-commonmark/plot_wind_speed-1.png)
-
-## Visualise number of sunshine hours
-
-``` r
-plotDWD(clim, "SDK.Sonnenscheindauer")
-```
-
-![](README_files/figure-commonmark/plot_sunshine_hours-1.png)
-
 ## Transfer to Python
 
 ``` python
 clim_py = r.clim
-import matplotlib
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 ```
 
@@ -109,12 +89,12 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      13.019455
-    std        7.069509
+    mean      12.955091
+    std        7.060297
     min       -4.800000
-    25%        8.100000
-    50%       14.150000
-    75%       18.700000
+    25%        8.025000
+    50%       13.950000
+    75%       18.675000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 
