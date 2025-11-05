@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-11-03, 13:14
+2025-11-05, 13:32
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -50,7 +50,7 @@ clim <- dataDWD(link, varnames=TRUE, force=24, removeftp=TRUE)
 ## Visualise recent temperature
 
 ``` r
-plotDWD(clim, "TMK.Lufttemperatur")
+plotDWD(clim, "TMK.Lufttemperatur", col="green")
 ```
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
@@ -89,12 +89,12 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      12.955091
-    std        7.060297
+    mean      12.921636
+    std        7.053559
     min       -4.800000
     25%        8.025000
-    50%       13.950000
-    75%       18.675000
+    50%       13.800000
+    75%       18.600000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 

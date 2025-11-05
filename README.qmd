@@ -45,7 +45,7 @@ clim <- dataDWD(link, varnames=TRUE, force=24, removeftp=TRUE)
 ## Visualise recent temperature
 
 ```{r, plot_clim}
-plotDWD(clim, "TMK.Lufttemperatur")
+plotDWD(clim, "TMK.Lufttemperatur", col="green")
 ```
 
 ## Transfer to Python
