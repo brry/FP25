@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-11-05, 13:32
+2025-11-24, 14:12
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -84,20 +84,22 @@ min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 
 print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print('goodbye')
 ```
 
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      12.921636
-    std        7.053559
+    mean      12.507273
+    std        7.202020
     min       -4.800000
-    25%        8.025000
-    50%       13.800000
-    75%       18.600000
+    25%        7.000000
+    50%       13.000000
+    75%       18.575000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 
     === Extreme Temperature Days ===
     Hottest day: 2025-07-02 with 29.2°C
     Coldest day: 2025-02-17 with -4.8°C
+    goodbye

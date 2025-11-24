@@ -76,6 +76,7 @@ min_temp_idx = clim_py['TMK.Lufttemperatur'].idxmin()
 
 print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[max_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
+print('goodbye')
 ```
 
 
