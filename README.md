@@ -103,3 +103,7 @@ print('goodbye')
     Hottest day: 2025-07-02 with 29.2°C
     Coldest day: 2025-02-17 with -4.8°C
     goodbye
+---
+
+**Pauline’s note:**  
+Hi everyone, Happy December.Seasons Greetings for Christmas!
