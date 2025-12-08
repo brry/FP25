@@ -78,9 +78,5 @@ print(f"Hottest day: {r.clim.loc[max_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[min_temp_idx, 'TMK.Lufttemperatur']:.1f}°C")
 print('goodbye')
 ```
-```{r, Pauline, echo=FALSE}
-message("Hi everyone, Happy December")
-message("Seasons Greetings to everyone")
-```
 
 
