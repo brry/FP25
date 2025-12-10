@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-11-24, 14:12
+2025-12-10, 13:17
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -22,7 +22,7 @@ again.
 ## load modules / packages
 
 ``` python
-import matplotlib, pandas
+import pandas, matplotlib
 ```
 
 <details class="code-fold">
@@ -90,12 +90,12 @@ print('goodbye')
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      12.507273
-    std        7.202020
+    mean      12.113636
+    std        7.305647
     min       -4.800000
-    25%        7.000000
-    50%       13.000000
-    75%       18.575000
+    25%        6.125000
+    50%       12.150000
+    75%       18.300000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 
@@ -103,7 +103,5 @@ print('goodbye')
     Hottest day: 2025-07-02 with 29.2°C
     Coldest day: 2025-02-17 with -4.8°C
     goodbye
----
 
-**Pauline’s note:**  
-Hi everyone, Happy December.Seasons Greetings for Christmas!
+    [1] "Happy New Day"

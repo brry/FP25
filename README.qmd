@@ -21,7 +21,7 @@ See [here](https://github.githistory.xyz/brry/FP25/blob/main/README.qmd) for a n
 ## load modules / packages
 
 ```{python, modules}
-import matplotlib, pandas
+import pandas, matplotlib
 ```
 
 ```{r, packages, message=FALSE} 
@@ -79,8 +79,7 @@ print(f"Coldest day: {r.clim.loc[min_temp_idx, 'MESS_DATUM']} with {clim_py.loc[
 print('goodbye')
 ```
 ```{r, Pauline, echo=FALSE}
-print("Hi everyone, Happy December.Seasons Greetings for Christmas!")
+print("Happy New Day")
 ```
-
 
 
