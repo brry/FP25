@@ -1,6 +1,6 @@
 # Fundamentals of Programming 2025
 Berry Boessenkool;
-2025-12-10, 13:17
+2025-12-21, 11:57
 
 This is a github task in the course
 [FP25](https://open.hpi.de/courses/hpi-dh-fprog2025).
@@ -38,8 +38,7 @@ rdwd::updateRdwd()
 
 ## Get weather data
 
-download recent weather data using
-[rdwd](https://bookdown.org/brry/rdwd/)
+download recent weather data using [rdwd](https://brry.github.io/rdwd/)
 
 ``` r
 library(rdwd)
@@ -50,7 +49,7 @@ clim <- dataDWD(link, varnames=TRUE, force=24, removeftp=TRUE)
 ## Visualise recent temperature
 
 ``` r
-plotDWD(clim, "TMK.Lufttemperatur", col="green")
+plotDWD(clim, "TMK.Lufttemperatur", main=range(clim$MESS_DATUM), col="green")
 ```
 
 ![](README_files/figure-commonmark/plot_clim-1.png)
@@ -90,12 +89,12 @@ print('goodbye')
 
     === Summary Statistics for Temperature ===
     count    550.000000
-    mean      12.113636
-    std        7.305647
+    mean      11.900364
+    std        7.343116
     min       -4.800000
-    25%        6.125000
-    50%       12.150000
-    75%       18.300000
+    25%        5.800000
+    50%       11.650000
+    75%       18.200000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
 

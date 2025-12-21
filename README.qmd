@@ -33,7 +33,7 @@ rdwd::updateRdwd()
 
 ## Get weather data
 
-download recent weather data using [rdwd](https://bookdown.org/brry/rdwd/)
+download recent weather data using [rdwd](https://brry.github.io/rdwd/)
 
 ```{r, get_weather_data}
 #| message: false
@@ -45,7 +45,7 @@ clim <- dataDWD(link, varnames=TRUE, force=24, removeftp=TRUE)
 ## Visualise recent temperature
 
 ```{r, plot_clim}
-plotDWD(clim, "TMK.Lufttemperatur", col="green")
+plotDWD(clim, "TMK.Lufttemperatur", main=range(clim$MESS_DATUM), col="green")
 ```
 
 ## Transfer to Python
