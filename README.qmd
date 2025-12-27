@@ -80,6 +80,7 @@ print('goodbye')
 ```
 ```{r, Pauline, echo=FALSE}
 print("Happy New Day")
+print("Happy Holidays")
 ```
 
 
